@@ -2,7 +2,7 @@ package com.akk.supermarket.domain;
 
 import java.math.BigDecimal;
 
-class BuyOneGetOneFree implements ISpecialOffers {
+public class BuyOneGetOneFree implements ISpecialOffers {
 	public BigDecimal getOffer(int quantity) {
 		// TODO Auto-generated method stub
 		return null;

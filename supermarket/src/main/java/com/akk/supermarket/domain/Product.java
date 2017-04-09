@@ -2,7 +2,7 @@ package com.akk.supermarket.domain;
 
 import java.math.BigDecimal;
 
-public class Product {
+public class Product implements IProduct {
 
 	private String name;
 	private String description;

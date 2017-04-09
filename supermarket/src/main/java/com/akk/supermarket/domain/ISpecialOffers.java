@@ -2,7 +2,7 @@ package com.akk.supermarket.domain;
 
 import java.math.BigDecimal;
 
-interface ISpecialOffers {
+public interface ISpecialOffers {
 	
 	/*
 	 * calculate price based on quantity and special offers
