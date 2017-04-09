@@ -1,4 +1,4 @@
-package com.akk.supermarket;
+package com.akk.supermarket.domain;
 
 import java.util.List;
 
