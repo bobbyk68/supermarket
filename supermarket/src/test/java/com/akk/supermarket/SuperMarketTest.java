@@ -2,6 +2,10 @@ package com.akk.supermarket;
 import java.math.BigDecimal;
 
 import org.junit.Test;
+
+import com.akk.supermarket.domain.Basket;
+import com.akk.supermarket.domain.Product;
+
 import junit.framework.Assert;
 
 public class SuperMarketTest {
