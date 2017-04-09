@@ -1,5 +1,4 @@
 package com.akk.supermarket;
-
 import java.math.BigDecimal;
 
 import org.junit.Test;
@@ -33,5 +32,4 @@ public class SuperMarketTest {
 		simpleShop.getTotalPrice();
 		simpleShop.getItemList();
 	}
-
 }
