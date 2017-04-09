@@ -32,8 +32,6 @@ public class SuperMarketTest {
 		Checkout simpleShop = new Checkout(basket);
 		simpleShop.getTotalPrice();
 		simpleShop.getItemList();
-		
-		
 	}
 
 }
