@@ -1,10 +1,8 @@
 package com.akk.supermarket.domain;
 
-import java.math.BigDecimal;
-
 public interface IProduct {
 	
-	public BigDecimal getPrice();
+	public IPrice getPrice();
 	public ISpecialOffers getOffers();
 
 }
