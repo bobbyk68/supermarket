@@ -9,9 +9,15 @@ public class Product implements IProduct {
 	private BigDecimal price;
 	private ISpecialOffers offers;
 	
-	
-	public BigDecimal cost(int quantity){
-		return new BigDecimal(quantity ).multiply(price);
+	public BigDecimal getPrice() {
+		return price;
 	}
+
+
+	public ISpecialOffers getOffers() {
+		return offers;
+	}
+
+	
 	
 }

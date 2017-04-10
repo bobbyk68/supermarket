@@ -5,9 +5,19 @@ public class Item {
 	private IProduct product;
 	private int quantity;
 	
-	public Item(IProduct product, int qty) {
-		
+	public int getQuantity() {
+		return quantity;
 	}
+
+	public Item(IProduct product, int qty) {
+		this.product = product;
+		this.quantity = qty;
+	}
+	
+	public IProduct getProduct() {
+		return product;
+	}
+	
 	
 
 }
