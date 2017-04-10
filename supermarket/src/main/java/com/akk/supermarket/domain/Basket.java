@@ -9,7 +9,6 @@ public class Basket {
 	
 	public void add(Item item){
 		items.add(item);
-		
 	}
 	
 	public List<Item> getItems(){

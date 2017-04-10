@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import com.akk.supermarket.domain.Basket;
 import com.akk.supermarket.domain.IProduct;
+import com.akk.supermarket.domain.Item;
 import com.akk.supermarket.domain.Product;
 import com.akk.supermarket.domain.UnitPrice;
 import com.akk.supermarket.domain.WeightedPrice;
@@ -28,6 +29,13 @@ public class SuperMarketTest {
 	public void testCombinedProductTypes() {
 		IProduct potatoes = new Product("Potato", "King Edwards", new WeightedPrice(1.99));
 		IProduct apple = new Product("Apple", "Granny", new UnitPrice(0.59));
+		Basket shopping = new Basket();
+		shopping.add(new Item(apple, 2));
+		shopping.add(new Item(potatoes, 3));
+		CheckoutService simpleShop = new CheckoutService(shopping);
+		simpleShop.getTotalPrice();
+		simpleShop.getItemList();
+
 	}
 	/*
 	@Test
