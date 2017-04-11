@@ -7,11 +7,15 @@ public class Basket {
 
 	private List<Item> items;
 	
-	public void add(Item item){
+	public Basket(ArrayList<Item> items) {
+		this.items = items;
+	}
+
+	public void addItemToBasket(Item item){
 		items.add(item);
 	}
 	
 	public List<Item> getItems(){
-		return new ArrayList<Item>();
+		return items;
 	}
 }

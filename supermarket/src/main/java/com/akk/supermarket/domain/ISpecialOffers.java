@@ -11,6 +11,6 @@ public interface ISpecialOffers {
 	- Buy three, get one free. ( get the quantity and see if they are eligible )
 	*/
 	
-	public BigDecimal getOffer(int quantity);
+	public BigDecimal getOffer(double quantity, double price);
 	
 }

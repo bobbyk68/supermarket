@@ -3,15 +3,15 @@ package com.akk.supermarket.domain;
 public class Item {
 	
 	private IProduct product;
-	private int quantity;
+	private double amount;
 	
-	public int getQuantity() {
-		return quantity;
+	public double getAmount() {
+		return amount;
 	}
 
-	public Item(IProduct product, int qty) {
+	public Item(IProduct product, double qty) {
 		this.product = product;
-		this.quantity = qty;
+		this.amount = qty;
 	}
 	
 	public IProduct getProduct() {

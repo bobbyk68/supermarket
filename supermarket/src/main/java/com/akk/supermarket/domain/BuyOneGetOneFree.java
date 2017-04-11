@@ -3,12 +3,10 @@ package com.akk.supermarket.domain;
 import java.math.BigDecimal;
 
 public class BuyOneGetOneFree implements ISpecialOffers {
-	public BigDecimal getOffer(int quantity) {
-		// TODO Auto-generated method stub
+	public BigDecimal getOffer(double quantity, double val) {
+		int notInDeal = new Double(quantity).intValue() % 2;
 		return null;
 	}
-	
-	
 }
 
 /*
