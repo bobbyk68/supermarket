@@ -41,9 +41,8 @@ public class SuperMarketTest {
 
 	}
 	
-	
 	@Test
-	public void testBuyOneGetOneFree() {
+	public void testSpecialOffer() {
 		ISpecialOffers bogof = new BuyOneGetOneFree();
 		Product apple = new Product("Apple", "Granny Smith", new UnitPrice(0.59), bogof);
 		Product newspaper = new Product("The Guardian", "Daily Paper", new UnitPrice(1.8));
@@ -55,6 +54,29 @@ public class SuperMarketTest {
 		checkResult(totalCost, 2.39);
 	}
 
+	@Test
+	public void testSimple() {
+		Product apple = new Product("Apple", "Granny Smith", new UnitPrice(0.59));
+		Product newspaper = new Product("The Times", "Daily Paper", new UnitPrice(0.9));
+		Basket shopping =  SuperMarketFactory.getBasketInstance();
+		shopping.addItemToBasket(new Item(apple, 1));
+		shopping.addItemToBasket(new Item(newspaper,1));
+		CheckoutService simpleShop = new CheckoutService(shopping);
+		BigDecimal totalCost = simpleShop.calculateBill();
+		checkResult(totalCost, 1.49);
+	}
+
+	
+	@Test
+	public void testBuyOneGetOneFreeWithExtraUnits() {
+		ISpecialOffers bogof = new BuyOneGetOneFree();
+		Product apple = new Product("Apple", "Granny Smith", new UnitPrice(0.59), bogof);
+		Basket shopping =  SuperMarketFactory.getBasketInstance();
+		shopping.addItemToBasket(new Item(apple, 3));
+		CheckoutService simpleShop = new CheckoutService(shopping);
+		BigDecimal totalCost = simpleShop.calculateBill();
+		checkResult(totalCost, 1.18);
+	}
 
 	private void checkResult(BigDecimal totalCost, double expectedValue) {
 		Assert.assertEquals(0, totalCost.setScale(2, BigDecimal.ROUND_HALF_UP)
