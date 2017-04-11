@@ -4,19 +4,21 @@ import java.math.BigDecimal;
 
 public class UnitPrice implements IPrice {
 
-	private double price;
+	private BigDecimal price;
 	
-	public double getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
-	public UnitPrice(double d) {
-		this.price = d;
+	public UnitPrice(double unitPrice) {
+		this.price = new BigDecimal(unitPrice);
 	}
 
 	@Override
-	public BigDecimal calculateCost(double amount) {
-		return new BigDecimal(price).multiply(new BigDecimal(amount));
+	public BigDecimal calculateCost(BigDecimal amount) {
+		return price.multiply(amount);
 	}
+
+	
 
 }

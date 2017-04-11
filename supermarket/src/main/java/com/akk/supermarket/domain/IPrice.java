@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 
 public interface IPrice {
 	
-	public double getPrice();
+	public BigDecimal getPrice();
 	
-	public BigDecimal calculateCost(double amount);
+	public BigDecimal calculateCost(BigDecimal amount);
 
 }

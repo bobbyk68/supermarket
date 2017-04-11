@@ -2,7 +2,7 @@ package com.akk.supermarket.domain;
 
 public interface IProduct {
 	
-	public IPrice getPrice();
+	public IPrice getPriceType();
 	public ISpecialOffers getOffers();
 
 }

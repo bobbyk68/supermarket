@@ -3,9 +3,9 @@ package com.akk.supermarket.domain;
 public class Item {
 	
 	private IProduct product;
-	private double amount;
+	private Double amount;
 	
-	public double getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
 

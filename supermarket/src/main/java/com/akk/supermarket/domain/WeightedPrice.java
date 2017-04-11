@@ -4,18 +4,18 @@ import java.math.BigDecimal;
 
 public class WeightedPrice implements IPrice {
 
-	private Double priceByWeight;
+	private BigDecimal priceByWeight;
 	
 	public WeightedPrice(double weightPrice) {
-		priceByWeight = weightPrice;
+		priceByWeight = new BigDecimal(weightPrice);
 	}
 	@Override
-	public BigDecimal calculateCost(double weight) {
-		return new BigDecimal(weight).multiply(new BigDecimal(priceByWeight));
+	public BigDecimal calculateCost(BigDecimal weight) {
+		return weight.multiply(priceByWeight);
 	}
 	@Override
-	public double getPrice() {
-		return 0;
+	public BigDecimal getPrice() {
+		return BigDecimal.ZERO;
 	}
 
 }

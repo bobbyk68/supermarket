@@ -9,7 +9,7 @@ public class Product implements IProduct {
 	private IPrice price;
 	private ISpecialOffers offers;
 	
-	public IPrice getPrice() {
+	public IPrice getPriceType() {
 		return price;
 	}
 

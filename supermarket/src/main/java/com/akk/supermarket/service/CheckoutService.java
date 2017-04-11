@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.akk.supermarket.domain.Basket;
+import com.akk.supermarket.domain.IPrice;
 import com.akk.supermarket.domain.ISpecialOffers;
 import com.akk.supermarket.domain.Item;
 
@@ -19,17 +20,19 @@ public class CheckoutService {
 			BigDecimal cost = BigDecimal.ZERO;
 			List<Item> items = basket.getItems();
 			for ( Item item : items) {
+				IPrice type = item.getProduct().getPriceType();
+				BigDecimal standardPrice = type.calculateCost(new BigDecimal(item.getAmount()));
 				// special offers?
 				ISpecialOffers possibleOffer = item.getProduct().getOffers();
-				BigDecimal offerPrice = possibleOffer.getOffer(item.getAmount(), item.getProduct().getPrice().getPrice());
-				BigDecimal standardPrice = item.getProduct().getPrice().calculateCost(item.getAmount());
-				BigDecimal lowestPrice = ( offerPrice.compareTo( standardPrice) == -1 ) ? offerPrice : standardPrice; 
+				BigDecimal lowestPrice = standardPrice;
+				if ( possibleOffer != null ) {
+					BigDecimal offerPrice = possibleOffer.getOffer(item.getAmount(), 
+							type.getPrice());
+					lowestPrice = ( offerPrice.compareTo( standardPrice) == -1 ) ? offerPrice : standardPrice; 
+				}
 				cost = cost.add( lowestPrice );
 			}
 			return cost;
 		}
 		
-//		private BigDecimal cost(IPrice price, Double qty){
-//			return new BigDecimal(quantity ).multiply(price);
-//		}
 }

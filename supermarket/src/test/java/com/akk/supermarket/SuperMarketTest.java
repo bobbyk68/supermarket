@@ -37,8 +37,7 @@ public class SuperMarketTest {
 		Assert.assertEquals(shopping.getItems().size(), 2);
 		CheckoutService simpleShop = new CheckoutService(shopping);
 		BigDecimal totalCost = simpleShop.calculateBill();
-		Assert.assertEquals(0, totalCost.setScale(2, BigDecimal.ROUND_HALF_UP)
-				.compareTo(new BigDecimal(7.15).setScale(2, BigDecimal.ROUND_HALF_UP)));
+		checkResult(totalCost,7.15);
 
 	}
 	
@@ -49,9 +48,17 @@ public class SuperMarketTest {
 		Product apple = new Product("Apple", "Granny Smith", new UnitPrice(0.59), bogof);
 		Product newspaper = new Product("The Guardian", "Daily Paper", new UnitPrice(1.8));
 		Basket shopping =  SuperMarketFactory.getBasketInstance();
-		shopping.add(apple, 2);
+		shopping.addItemToBasket(new Item(apple, 2));
+		shopping.addItemToBasket(new Item(newspaper,1));
 		CheckoutService simpleShop = new CheckoutService(shopping);
 		BigDecimal totalCost = simpleShop.calculateBill();
+		checkResult(totalCost, 2.39);
+	}
+
+
+	private void checkResult(BigDecimal totalCost, double expectedValue) {
+		Assert.assertEquals(0, totalCost.setScale(2, BigDecimal.ROUND_HALF_UP)
+				.compareTo(new BigDecimal(expectedValue).setScale(2, BigDecimal.ROUND_HALF_UP)));
 	}
 	
 }
